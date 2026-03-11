@@ -7,6 +7,7 @@ Kezdő webes prototípus egy rádióműsor-adatbázis online feldolgozásához.
 - egy statikus, böngészőben futó keresőfelületet
 - javasolt adatstruktúrát az Excel importhoz
 - a javasolt adatmodell SQLite-kompatibilis SQL sémáját a `schema.sql` fájlban
+- egy teljes, betölthető SQLite scriptet a normalizált mintaadatokkal a `database.sql` fájlban
 - mintaadatokat, amikkel a keresés és a szűrés kipróbálható
 
 ## Javasolt adatmodell az Excel importhoz
@@ -19,6 +20,15 @@ A sémafájl csak a táblák és indexek létrehozását tartalmazza.
 Az indexek létrehozása MySQL-kompatibilis `CREATE INDEX` szintaxist használ,
 ezért ugyanabba az adatbázisba újrafuttatva névütközés hibát adhat. A foreign key ellenőrzést SQLite-ban
 kapcsolatonként külön kell bekapcsolni (például `PRAGMA foreign_keys = ON;` az adott kliensben vagy alkalmazásban).
+
+Ha nem csak a sémára, hanem azonnal használható SQL adatbázis-tartalomra van szükség, futtasd a
+`database.sql` fájlt. Ez a jelenlegi mintaadatokat már a normalizált `episodes`, `topics`, `people`
+és kapcsolótáblák szerkezetében tartalmazza:
+
+```bash
+cd szoszatyar
+sqlite3 szoszatyar.db < database.sql
+```
 
 A feltöltött Excel várhatóan többféle információt tartalmaz ugyanarról az adatkészletről: adás, téma, megszólaló, kapcsolódó hivatkozás, címke. Ehhez a következő szerkezet használható:
 
@@ -71,7 +81,7 @@ A feltöltött Excel várhatóan többféle információt tartalmaz ugyanarról 
 Mivel ez egy statikus prototípus, elég egy egyszerű webszerver:
 
 ```bash
-cd /home/runner/work/szoszatyar/szoszatyar
+cd szoszatyar
 python3 -m http.server 8000
 ```
 
