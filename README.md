@@ -15,7 +15,9 @@ Az alábbi struktúra a repository gyökerében található `schema.sql` fájlba
 így az Excelből érkező adatokhoz közvetlenül létrehozható az SQL adatbázis-séma.
 SQLite használathoz érdemes közvetlenül ezt a fájlt futtatni (`sqlite3 adatbazis.db < schema.sql`),
 mert issue- vagy HTML-környezetben a SQL operátorok egy része (például `>`) HTML-entitássá torzulhat.
-A sémafájl csak a táblák és indexek létrehozását tartalmazza; a foreign key ellenőrzést SQLite-ban
+A sémafájl csak a táblák és indexek létrehozását tartalmazza.
+Az indexek létrehozása MySQL-kompatibilis `CREATE INDEX` szintaxist használ,
+ezért ugyanabba az adatbázisba újrafuttatva névütközés hibát adhat. A foreign key ellenőrzést SQLite-ban
 kapcsolatonként külön kell bekapcsolni (például `PRAGMA foreign_keys = ON;` az adott kliensben vagy alkalmazásban).
 
 A feltöltött Excel várhatóan többféle információt tartalmaz ugyanarról az adatkészletről: adás, téma, megszólaló, kapcsolódó hivatkozás, címke. Ehhez a következő szerkezet használható:
