@@ -1,5 +1,3 @@
-PRAGMA foreign_keys = ON;
-
 CREATE TABLE IF NOT EXISTS episodes (
   id INTEGER PRIMARY KEY,
   broadcast_date TEXT NOT NULL,
