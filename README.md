@@ -13,6 +13,8 @@ Kezdő webes prototípus egy rádióműsor-adatbázis online feldolgozásához.
 
 Az alábbi struktúra a repository gyökerében található `schema.sql` fájlban is elérhető,
 így az Excelből érkező adatokhoz közvetlenül létrehozható az SQL adatbázis-séma.
+SQLite használathoz érdemes közvetlenül ezt a fájlt futtatni (`sqlite3 adatbazis.db < schema.sql`),
+mert issue- vagy HTML-környezetben a SQL operátorok egy része (például `>`) HTML-entitássá torzulhat.
 
 A feltöltött Excel várhatóan többféle információt tartalmaz ugyanarról az adatkészletről: adás, téma, megszólaló, kapcsolódó hivatkozás, címke. Ehhez a következő szerkezet használható:
 
