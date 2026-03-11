@@ -59,7 +59,7 @@ A feltöltött Excel várhatóan többféle információt tartalmaz ugyanarról 
 
 1. az Excel oszlopneveit normalizálni kell
 2. minden sort egy adásként vagy egy adás-részletként kell feldolgozni
-3. az adatok betöltése előtt ellenőrizni kell, hogy a `broadcast_date` mező `ÉÉÉÉ-HH-NN` formátumú, a `source_row` pedig üres vagy pozitív egész legyen
+3. az adatok betöltése előtt ellenőrizni kell, hogy a `broadcast_date` mező `YYYY-MM-DD` formátumú, a `source_row` pedig üres vagy pozitív egész legyen
 4. a több értéket tartalmazó mezőket (pl. témák, vendégek, kulcsszavak) darabolni kell
 5. az ismétlődő témákat és neveket külön törzsadat táblába érdemes emelni
 6. a keresőfelület az importált SQL adatokra vagy JSON exportokra is ráépíthető
