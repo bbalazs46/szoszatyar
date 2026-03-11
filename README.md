@@ -26,7 +26,7 @@ Ha nem csak a sémára, hanem azonnal használható SQL adatbázis-tartalomra va
 és kapcsolótáblák szerkezetében tartalmazza:
 
 ```bash
-cd /home/runner/work/szoszatyar/szoszatyar
+cd szoszatyar
 sqlite3 szoszatyar.db < database.sql
 ```
 
@@ -81,7 +81,7 @@ A feltöltött Excel várhatóan többféle információt tartalmaz ugyanarról 
 Mivel ez egy statikus prototípus, elég egy egyszerű webszerver:
 
 ```bash
-cd /home/runner/work/szoszatyar/szoszatyar
+cd szoszatyar
 python3 -m http.server 8000
 ```
 
