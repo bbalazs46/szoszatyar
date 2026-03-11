@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS episodes (
   description TEXT,
   notes TEXT,
   source_row INTEGER,
+  CHECK (broadcast_date GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   CHECK (source_row IS NULL OR source_row > 0)
 );
 
@@ -58,6 +59,9 @@ CREATE TABLE IF NOT EXISTS episode_keywords (
 
 CREATE INDEX IF NOT EXISTS idx_episodes_broadcast_date ON episodes (broadcast_date);
 CREATE INDEX IF NOT EXISTS idx_topics_category ON topics (category);
+CREATE INDEX IF NOT EXISTS idx_episode_topics_episode_id ON episode_topics (episode_id);
+CREATE INDEX IF NOT EXISTS idx_episode_topics_topic_id ON episode_topics (topic_id);
+CREATE INDEX IF NOT EXISTS idx_episode_people_episode_id ON episode_people (episode_id);
 CREATE INDEX IF NOT EXISTS idx_episode_people_person_id ON episode_people (person_id);
 CREATE INDEX IF NOT EXISTS idx_episode_links_episode_id ON episode_links (episode_id);
 CREATE INDEX IF NOT EXISTS idx_episode_keywords_episode_id ON episode_keywords (episode_id);
