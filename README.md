@@ -37,7 +37,7 @@ A feltöltött Excel várhatóan többféle információt tartalmaz ugyanarról 
 | --- | --- | --- |
 | `id` | integer / uuid | egyedi azonosító |
 | `name` | text | téma neve |
-| `slug` | text | URL-barát azonosító |
+| `slug` | varchar(255) | URL-barát azonosító |
 | `category` | text | témacsoport |
 
 ### `people`
