@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Szószatyár – rádióműsor kereső</title>
+    <link rel="stylesheet" href="/styles.css?v=1" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Rádióműsor-adatbázis</p>
+        <h1>Szószatyár kereső prototípus</h1>
+        <p class="lead">
+          Kezdő online felület rádióadások, témák, vendégek és kulcsszavak gyors
+          böngészésére. A végleges verzió mögé közvetlen Excel-import és SQL-alapú
+          keresés illeszthető.
+        </p>
+      </div>
+      <div class="hero-card">
+        <strong>Mit tud most?</strong>
+        <ul>
+          <li>szabad szavas keresés címre, leírásra, témára, szereplőre</li>
+          <li>szűrés témacsoport és év szerint</li>
+          <li>javasolt adatmodell az Excel importhoz</li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel filters">
+        <div>
+          <label for="search">Keresés</label>
+          <input id="search" type="search" placeholder="pl. irodalom, archívum, interjú" />
+        </div>
+        <div>
+          <label for="topicFilter">Témacsoport</label>
+          <select id="topicFilter">
+            <option value="">Mindegyik</option>
+          </select>
+        </div>
+        <div>
+          <label for="yearFilter">Év</label>
+          <select id="yearFilter">
+            <option value="">Mindegyik</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="layout">
+        <section class="panel results-panel">
+          <div class="results-header">
+            <div>
+              <h2>Találatok</h2>
+              <p id="resultsSummary">Betöltés…</p>
+            </div>
+            <button id="clearFilters" type="button" class="secondary-button">Szűrők törlése</button>
+          </div>
+          <div id="results" class="results"></div>
+        </section>
+
+        <aside class="sidebar">
+          <section class="panel info-panel">
+            <h2>Javasolt adatstruktúra</h2>
+            <ul class="structure-list">
+              <li><strong>episodes</strong>: adás címe, dátuma, leírása, megjegyzése</li>
+              <li><strong>topics</strong>: téma neve, kategória, keresési azonosító</li>
+              <li><strong>people</strong>: megszólalók és szerepkörök</li>
+              <li><strong>episode_topics</strong>, <strong>episode_people</strong>, <strong>episode_links</strong></li>
+            </ul>
+          </section>
+
+          <section class="panel info-panel">
+            <h2>Excel-import javaslat</h2>
+            <ol>
+              <li>oszlopok egységesítése</li>
+              <li>többértékű mezők feldarabolása</li>
+              <li>témák és nevek deduplikálása</li>
+              <li>SQL táblák feltöltése vagy JSON export készítése</li>
+            </ol>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <template id="resultTemplate">
+      <article class="result-card">
+        <div class="result-top">
+          <p class="result-date"></p>
+          <span class="result-year"></span>
+        </div>
+        <h3 class="result-title"></h3>
+        <p class="result-description"></p>
+        <dl class="result-meta">
+          <div>
+            <dt>Témák</dt>
+            <dd class="result-topics"></dd>
+          </div>
+          <div>
+            <dt>Szereplők</dt>
+            <dd class="result-people"></dd>
+          </div>
+          <div>
+            <dt>Kulcsszavak</dt>
+            <dd class="result-keywords"></dd>
+          </div>
+        </dl>
+      </article>
+    </template>
+
+    <script src="/app.js?v=1"></script>
+  </body>
+</html>
