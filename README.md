@@ -6,9 +6,13 @@ Kezdő webes prototípus egy rádióműsor-adatbázis online feldolgozásához.
 
 - egy statikus, böngészőben futó keresőfelületet
 - javasolt adatstruktúrát az Excel importhoz
+- a javasolt adatmodell SQLite-kompatibilis SQL sémáját a `schema.sql` fájlban
 - mintaadatokat, amikkel a keresés és a szűrés kipróbálható
 
 ## Javasolt adatmodell az Excel importhoz
+
+Az alábbi struktúra a repository gyökerében található `schema.sql` fájlban is elérhető,
+így az Excelből érkező adatokhoz közvetlenül létrehozható az SQL adatbázis-séma.
 
 A feltöltött Excel várhatóan többféle információt tartalmaz ugyanarról az adatkészletről: adás, téma, megszólaló, kapcsolódó hivatkozás, címke. Ehhez a következő szerkezet használható:
 
