@@ -4,10 +4,7 @@ CREATE TABLE IF NOT EXISTS episodes (
   title TEXT NOT NULL,
   description TEXT,
   notes TEXT,
-  source_row INTEGER,
-  CHECK (date(broadcast_date) IS NOT NULL),
-  CHECK (broadcast_date GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
-  CHECK (source_row IS NULL OR source_row > 0)
+  source_row INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS topics (
